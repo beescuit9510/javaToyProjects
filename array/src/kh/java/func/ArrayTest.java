@@ -220,6 +220,11 @@ public class ArrayTest {
 				
 				for(int j=0;j<comNums.length;j++) {
 					comNums[i] = r.nextInt(46)+1;
+					for(int k=0;k<comNums.length;k++) {
+						if(comNums[i]==comNums[k]&&i!=k) {
+							j--;
+						}
+						}
 				}				
 			}
 			
