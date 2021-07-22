@@ -9,7 +9,10 @@ public class Start {
 //		test1.$bubbleArray();
 //		test1.reverseBubbleArray();
 //		test1.$reverseBubbleArray();
-		test1.lotto();
+//		test1.lotto();
+//		test1.example9();
+		test1.$snail();
+//		test1.snail();
 		
 	}
 

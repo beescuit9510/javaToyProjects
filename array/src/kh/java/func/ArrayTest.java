@@ -1,5 +1,6 @@
 package kh.java.func;
 
+import java.lang.reflect.Array;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -178,6 +179,11 @@ public class ArrayTest {
 	}
 	
 	
+
+	
+	
+	
+	
 	public void lotto() {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
@@ -215,18 +221,18 @@ public class ArrayTest {
 							break;
 						}
 					}
-//					System.out.println();
 				}while(limit||overlap);
 				
-				for(int j=0;j<comNums.length;j++) {
-					comNums[i] = r.nextInt(46)+1;
-					for(int k=0;k<comNums.length;k++) {
-						if(comNums[i]==comNums[k]&&i!=k) {
-							j--;
-						}
-						}
-				}				
-			}
+			for(int j=0;j<comNums.length;j++) {
+//				comNums[i] = i+1;
+				comNums[i] = r.nextInt(46)+1;
+				for(int k=0;k<comNums.length;k++) {
+					if(comNums[i]==comNums[k]&&i!=k) {
+						j--;
+					}
+					}
+			}				
+		}
 			
 			for(int i=0;i<inputNums.length-1;i++) {
 				for(int j=0;j<inputNums.length-i-1;j++) {
@@ -265,13 +271,14 @@ public class ArrayTest {
 			
 			
 			int count = 0;
-			for(int i=0;i<comNums.length-1;i++) {
+			for(int i=0;i<comNums.length;i++) {
 				for(int j=0;j<comNums.length;j++) {
 					if(inputNums[i]==comNums[j]) {
 						count++;
 					}		
 				}
 			}
+			
 			
 			System.out.println("맞힌 갯수 : "+count);
 			
@@ -288,6 +295,214 @@ public class ArrayTest {
 	
 
 		
+		
+		
+	}
+	
+	
+	public void $array() {
+		int[] arr1 = {1,2,3,4,5};
+		int[][] arr2 = {{100,400,300},{500,200,600}};
+		int[][] arr3 = new int[3][3];
+//		int[][] arr3 = {{1,2,3},{4,5,6},{7,8,9}};
+		
+		
+		int count = 1;
+		for(int i=0;i<arr3.length;i++) {
+			for(int j=0;j<arr3[i].length;j++) {
+				arr3[i][j] = count++; 
+				System.out.println(arr3[i][j]);
+			}
+		}
+	}
+	
+	
+	public void example6() {
+		int[][] arr = new int[5][5];
+		int k = 0;
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=arr[i].length-1;j>-1;j--) {
+				arr[i][j] = ++k;
+				
+			}
+			
+		}
+		
+	
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	public void example7() {
+		int[][] arr = new int[5][5];
+		int k = 0;
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[j][i] = ++k;
+			}
+		}
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public void example8() {
+		int[][] arr = new int[5][5];
+		int k = 0;
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=arr[i].length-1;j>-1;j--) {
+				arr[j][i] = ++k;
+			}
+		}
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	
+	public void example9() {
+		int[][] arr = new int[5][5];
+		int k = 0;
+		boolean turn = true;
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[i][turn? j:4-j] = ++k;
+				
+			}
+			turn=!turn;
+		}
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	
+	
+	public void snail() {
+		int[][] arr = new int[5][5];
+		int k = 0;
+		int start = 0;
+		int end = arr.length-1;
+		boolean turn = false;
+		boolean column = false;
+		
+		for(int i=0;i<arr.length;i++) {
+			turn=!turn;
+			column=!column;
+			
+			if(column) {
+				for(int j=0;j<arr.length;j++) {
+					arr[turn? start:end][turn ? j:4-j] = ++k;					
+				}
+			} else {
+				
+			}
+			int box = turn ? start++:end--;
+			
+			
+		}
+		
+
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+
+	
+	}
+	
+	public void $snail() {
+//		Scanner sc = new Scanner(System.in);
+		
+		int[][] arr = new int[7][7];
+		int k = 0;
+		int top = 0;
+		int bottom = arr.length-1;
+		int left = 0;
+		int right = arr.length-1;
+		boolean turn = true;
+		boolean column = true;
+		boolean topInUse = false;
+		boolean bottomInUse = false;
+		boolean leftInUse = false;
+		boolean rightInUse = false;
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			turn=!turn;
+			column=!column;
+			topInUse = false;
+			bottomInUse = false;
+			leftInUse = false;
+			rightInUse = false;
+			for(int j=0;j<arr.length-i;j++) {
+//				
+//				if(!turn&&!column) {
+//					arr[top][j] = ++k;
+//					topInUse = true;
+//				}
+//				else if(turn) {
+//					arr[bottom][j] = ++k;	
+//					bottomInUse = true;
+//				}
+				if(turn&&column) {
+					arr[bottom-j][left]= ++k;
+					bottomInUse = true;
+					leftInUse = true;
+				}else if(column) {
+					arr[top+j][right] = ++k;				
+					topInUse = true;
+				}
+			}
+			top = topInUse? top+1:top;
+			bottom = bottomInUse? bottom-1:bottom;
+			left = leftInUse? left+1:left;
+			right = rightInUse? right-1:right;
+		}
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+
+		
+	}
+	
+	public void snail3() {
+		int[][] arr = new int[5][5];
+
 		
 		
 	}
