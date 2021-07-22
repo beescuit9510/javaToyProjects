@@ -28,11 +28,11 @@ public class ArrayTest {
 		String[] arr4 = new String[3];
 		arr4[0] ="hi";
 		arr4[1] ="hello";
-		arr4[2] ="¾È³çÇÏ¼¼¿ä";
+		arr4[2] ="ì•ˆë…•í•˜ì„¸ìš”";
 	}
 	
 	public void example1() {
-		String[] fruit = {"µş±â", "º¹¼ş¾Æ","Å°À§","»ç°ú","¹Ù³ª³ª"};
+		String[] fruit = {"ë”¸ê¸°", "ë³µìˆ­ì•„","í‚¤ìœ„","ì‚¬ê³¼","ë°”ë‚˜ë‚˜"};
 		for(int i=0;i<fruit.length; i++) {
 			System.out.print(fruit[i]+"\t");
 		}
@@ -61,15 +61,15 @@ public class ArrayTest {
 	public void example3() {
 		Scanner sc = new Scanner(System.in);
 		int[] grade = new int[4];
-		String[] subject = {"±¹¾î", "¿µ¾î", "¼öÇĞ"};
+		String[] subject = {"êµ­ì–´", "ì˜ì–´", "ìˆ˜í•™"};
 		
 		for(int i=0; i<grade.length-1; i++) {
-			System.out.println(subject[i]+" Á¡¼ö ÀÔ·Â:");
+			System.out.println(subject[i]+" ì ìˆ˜ ì…ë ¥:");
 			grade[i] = sc.nextInt();
 			grade[3]+= grade[i];
 		}
 		
-		System.out.printf("Æò±Õ : %.2f", (float)(grade[3])/grade.length);
+		System.out.printf("í‰ê·  : %.2f", (float)(grade[3])/grade.length);
 		
 	}
 	
@@ -77,7 +77,7 @@ public class ArrayTest {
 		Scanner sc = new Scanner(System.in);
 		int[] arr1 = new int[5];
 		for(int i=0; i<arr1.length;i++) {
-			System.out.printf("%d¹øÂ° ¼ıÀÚ ÀÔ·Â : %n", i+1);
+			System.out.printf("%dë²ˆì§¸ ìˆ«ì ì…ë ¥ : %n", i+1);
 			arr1[i] = sc.nextInt();
 		}
 		for(int i=0; i<arr1.length;i++) {
@@ -96,18 +96,18 @@ public class ArrayTest {
 			System.out.print(arr[i]+" \t");
 		}
 		
-		for(int j=0;j<arr.length;j++) {
-			for(int i=0; i<arr.length-i;i++) {
-				if(arr[i]>arr[i+1]) {
-					int temp = arr[i];
-					arr[i] = arr[i+1];
-					arr[i+1] = temp;
+		for(int i=0;i<arr.length-1;i++) {
+			for(int j=0; j<arr.length-1-i;j++) {
+				if(arr[j]>arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
 				}
 			}
 		}
 		
 		System.out.println();
-		System.out.println("Á¤·Ä ÈÄ");
+		System.out.println("ì •ë ¬ í›„");
 	
 		for(int i=0;i<arr.length;i++) {
 			System.out.print(arr[i]+" \t");
@@ -147,12 +147,147 @@ public class ArrayTest {
 //			}
 //		}
 		System.out.println();
-		System.out.println("Á¤·Ä ÈÄ");
+		System.out.println("ì •ë ¬ í›„");
 		for(int i=0;i<arr.length;i++) {
 			System.out.print(arr[i]+" \t");
 		}		
 		
 	}
+	
+	public void $reverseBubbleArray() {
+		Scanner sc = new Scanner(System.in);
+		int[] arr = new int[5];
+		for(int i=0;i<arr.length;i++) {
+			System.out.printf("%dë²ˆì§¸ ìˆ«ì ì…ë ¥ : ", i+1);
+			arr[i] = sc.nextInt();
+		}
+		
+		for(int i=0;i<arr.length-1;i++) {
+			for(int j=0;j<arr.length-1-i;j++) {
+				if(arr[j]<arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<arr.length-1;i++) {
+			System.out.print(arr[i]+"\t");
+		}
+	}
+	
+	
+	public void lotto() {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+		
+		int[] inputNums = new int[6];
+		int[] comNums = new int[6];
+		
+		System.out.println("========= ë¡œë˜ í”„ë¡œê·¸ë¨ =========");
+		
+		boolean run = true;
+		while(run) {
+			for(int i=0;i<inputNums.length;i++) {
+				int tmp = 0;
+				boolean overlap = false;
+				boolean limit = false;
+				do {
+					limit = false;
+					overlap = false;
+					System.out.printf("%dë²ˆì§¸ ë²ˆí˜¸ ì…ë ¥(1~45) : ", i+1);
+					tmp = sc.nextInt();
+					inputNums[i]=tmp;
+					
+					
+					if(tmp<=0||tmp>45) {
+						limit = true;
+						System.out.println("1~45 ì‚¬ì´ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+					}
+					
+					for(int k=0;k<inputNums.length;k++) {
+						if(tmp==inputNums[k]&&tmp!=0) {
+							overlap = k!=i ? true:false;
+							if(overlap) {
+								System.out.println("ì¤‘ë³µëœ ê°’ ì…ë‹ˆë‹¤.");
+							}
+							break;
+						}
+					}
+//					System.out.println();
+				}while(limit||overlap);
+				
+				for(int j=0;j<comNums.length;j++) {
+					comNums[i] = r.nextInt(46)+1;
+				}				
+			}
+			
+			for(int i=0;i<inputNums.length-1;i++) {
+				for(int j=0;j<inputNums.length-i-1;j++) {
+					if(inputNums[j]>inputNums[j+1]) {
+						int temp = inputNums[j];
+						inputNums[j] = inputNums[j+1];
+						inputNums[j+1] = temp;
+					}
+				}
+			}
+			for(int i=0;i<comNums.length-1;i++) {
+				for(int j=0;j<comNums.length-i-1;j++) {
+					if(comNums[j]>comNums[j+1]) {
+						int temp = comNums[j];
+						comNums[j] = comNums[j+1];
+						comNums[j+1] = temp;
+					}
+				}
+			}
+			
+			boolean myturn = true;
+			
+			for(int j=0; j<2;j++) {
+				if(myturn) {
+					System.out.println("ì‚¬ìš©ì ë²ˆí˜¸ ");
+				}else {
+					System.out.println("ì»´í“¨í„° ë²ˆí˜¸ ");
+				}
+				for(int i=0;i<inputNums.length;i++) {
+					System.out.print(myturn ? inputNums[i]+" ":comNums[i]+" ");
+				}	
+				System.out.println();
+				myturn=!myturn;
+				
+			}
+			
+			
+			int count = 0;
+			for(int i=0;i<comNums.length-1;i++) {
+				for(int j=0;j<comNums.length;j++) {
+					if(inputNums[i]==comNums[j]) {
+						count++;
+					}		
+				}
+			}
+			
+			System.out.println("ë§íŒ ê°¯ìˆ˜ : "+count);
+			
+			
+//			48 â€“ 57
+			int grade = 49+6-count;
+			System.out.printf(grade==7? "ë‹¹ì‹ ì€ ê½ ì…ë‹ˆë‹¤.":"ë‹¹ì‹ ì€ %c ë“± ì…ë‹ˆë‹¤", grade);
+			
+			System.out.println();
+			System.out.println("í•œë²ˆ ë” í•˜ì‹œê² ìŠµë‹ˆê¹Œ(1.yes,2.no)?");
+			run = sc.nextInt()==1? true:false;
+			
+		}
+	
+
+		
+		
+		
+	}
+	
+
 
 	
 }
