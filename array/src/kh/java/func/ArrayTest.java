@@ -409,87 +409,30 @@ public class ArrayTest {
 	
 	public void snail() {
 		int[][] arr = new int[5][5];
-		int k = 0;
-		int start = 0;
-		int end = arr.length-1;
-		boolean turn = false;
-		boolean column = false;
+		int size = arr.length-1;
+		int k = 1;
+		int col = -1;
+		int row = 0;
+		int increase = 1;
 		
-		for(int i=0;i<arr.length;i++) {
-			turn=!turn;
-			column=!column;
+		while(size>0) {
 			
-			if(column) {
-				for(int j=0;j<arr.length;j++) {
-					arr[turn? start:end][turn ? j:4-j] = ++k;					
-				}
-			} else {
+			for(int i=0;i<size;i++) {
+				col +=increase;
+				arr[row][col] = k++;
 				
 			}
-			int box = turn ? start++:end--;
+			size--;
+			
+			for(int i=0;i<size;i++) {
+				row += increase;
+				arr[row][col] = k++;
+			}
+			increase= - increase;
 			
 			
 		}
 		
-
-		for(int i=0;i<arr.length;i++) {
-			for(int j=0;j<arr[i].length;j++) {
-				System.out.print(arr[i][j]+"\t");
-			}
-			System.out.println();
-		}
-
-	
-	}
-	
-	public void $snail() {
-//		Scanner sc = new Scanner(System.in);
-		
-		int[][] arr = new int[7][7];
-		int k = 0;
-		int top = 0;
-		int bottom = arr.length-1;
-		int left = 0;
-		int right = arr.length-1;
-		boolean turn = true;
-		boolean column = true;
-		boolean topInUse = false;
-		boolean bottomInUse = false;
-		boolean leftInUse = false;
-		boolean rightInUse = false;
-		
-		
-		for(int i=0;i<arr.length;i++) {
-			turn=!turn;
-			column=!column;
-			topInUse = false;
-			bottomInUse = false;
-			leftInUse = false;
-			rightInUse = false;
-			for(int j=0;j<arr.length-i;j++) {
-//				
-//				if(!turn&&!column) {
-//					arr[top][j] = ++k;
-//					topInUse = true;
-//				}
-//				else if(turn) {
-//					arr[bottom][j] = ++k;	
-//					bottomInUse = true;
-//				}
-				if(turn&&column) {
-					arr[bottom-j][left]= ++k;
-					bottomInUse = true;
-					leftInUse = true;
-				}else if(column) {
-					arr[top+j][right] = ++k;				
-					topInUse = true;
-				}
-			}
-			top = topInUse? top+1:top;
-			bottom = bottomInUse? bottom-1:bottom;
-			left = leftInUse? left+1:left;
-			right = rightInUse? right-1:right;
-		}
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr[i].length;j++) {
 				System.out.print(arr[i][j]+"\t");
@@ -498,18 +441,103 @@ public class ArrayTest {
 		}
 
 		
-	}
 	
-	public void snail3() {
+}
+	
+	
+	public void $snail123() {
+		
 		int[][] arr = new int[5][5];
-
+		int size = arr.length-1;
 		
+		int k = 0;
+		int col = 0;
+		int row = 0;
+		int rightcol = 0;
+		int leftcol = 0;
 		
+		while(size>0) {
+		
+			for(int i=0+leftcol;i<arr.length-rightcol;i++) {
+				arr[row][i] = ++k;
+			}
+			rightcol++;
+			size--;
+			for(int i=0;i<arr.length;i++) {
+				arr[i][4-col] = ++k;
+				
+			}
+			
+			for(int i=0+leftcol;i<arr.length-rightcol;i++) {
+				arr[4-row][i] = ++k;
+			}			
+			rightcol++;
+			row++;
+			for(int i=0;i<arr.length-rightcol;i++) {
+				arr[size-i][col] = ++k;
+			}
+			leftcol++;
+			col++;
+			size--;
+			System.out.println(rightcol);
+			System.out.println(leftcol);
+			for(int i=0+leftcol;i<arr.length-rightcol;i++) {
+				arr[row][i] = ++k;
+			}
 	}
 	
-
-
+		
+		
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
 	
+	
+	
+	//달팽이배열(시계방향)
+
+		public void exam1() {										 
+
+	        Scanner sc = new Scanner(System.in);
+			System.out.print("2차원 배열 크기 입력(정방형) > ");
+			int size = sc.nextInt();
+			int[][] arr = new int[size][size];				 //입력받은크기의 정방형 배열 생성
+			int k = 1;										 //배열안의 채울 값 변수
+			int inc =1;										 //인덱스번호 증감용 변수
+			int r=0;										 //2차원배열 행 인덱스번호
+			int c=-1;										 //2차원배열 열 인덱스번호
+			while(size>0) {
+				for(int i=0;i<size;i++) {
+					c=c+inc;
+					arr[r][c]=k;
+					k++;
+				}
+				size--;
+				for(int i=0;i<size;i++) {
+//					System.out.println("befroe c "+r);
+					r=r+inc;
+//					System.out.println("after c "+r);
+					arr[r][c]=k;
+					k++;
+				}
+				inc = -inc;
+			}
+			for(int i=0;i<arr.length;i++) {
+				for(int j=0;j<arr[i].length;j++) {
+					System.out.print(arr[i][j]+"\t");
+				}
+				System.out.println();
+			}
+		} 
+
+	 
+
 }
 
 
