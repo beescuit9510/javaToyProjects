@@ -1,26 +1,45 @@
 package grokkingAlgoritmn.java.func;
 
+import java.util.Random;
+
 public class Search {
 	
-	public int binarySearch(int[] array, int target) {
-		
-		int mid = array.length/2;
-		
-		while(array.length>0) {
-			if(target==mid) {
-				return(mid);
-			} else if(target>mid) {
-			} 
-			
+	
+	public void bubbleArray() {
+		Random r = new Random();
+		int[] arr = new int[5];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=r.nextInt(100)+1;
+			System.out.print(arr[i]+" \t");
 		}
+		
+		for(int i=0;i<arr.length-1;i++) {
+			for(int j=0; j<arr.length-1-i;j++) {
+				if(arr[j]>arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		
+		System.out.println();
+		System.out.println("Á¤·Ä ÈÄ");
+	
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" \t");
+		}		
+		
+		
 	}
 	
-	public void binarySearchTest() {
+	static int binarySearch(int[] array, int target) {}
+	static int linkedList(int[] array, int target) {}
+	static int quickSort(int[] array, int target) {}
+	static int snailSort() {}
+	static int reverseSnailSort() {}
+	
 		
-		int[] array = {10,20,30,40,50,60,70,80,90,100};
-		int target = 90;
-		
-	}
 	
 	
 	
