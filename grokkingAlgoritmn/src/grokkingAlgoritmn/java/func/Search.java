@@ -1,43 +1,50 @@
 package grokkingAlgoritmn.java.func;
 
-import java.util.Random;
-
 public class Search {
 	
-	
-	public void bubbleArray() {
-		Random r = new Random();
-		int[] arr = new int[5];
-		for(int i=0;i<arr.length;i++) {
-			arr[i]=r.nextInt(100)+1;
-			System.out.print(arr[i]+" \t");
-		}
-		
-		for(int i=0;i<arr.length-1;i++) {
-			for(int j=0; j<arr.length-1-i;j++) {
-				if(arr[j]>arr[j+1]) {
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
-				}
-			}
-		}
-		
-		System.out.println();
-		System.out.println("Á¤·Ä ÈÄ");
-	
-		for(int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+" \t");
-		}		
-		
-		
-	}
-	
+	static int snailSort() {}
 	static int binarySearch(int[] array, int target) {}
 	static int linkedList(int[] array, int target) {}
-	static int quickSort(int[] array, int target) {}
-	static int snailSort() {}
-	static int reverseSnailSort() {}
+	static int mergeSort() {}
+	static int hashTable() {}
+	static int hashFunction() {}
+	
+	
+	static int[] quickSort(int[] arr) {
+		if(arr.length==1) {
+			return arr;
+		} else {
+			int[][] tmp = new int[2][arr.length];
+			int prevIn=0;
+			int afterIn=0;
+			for(int i=1;i<arr.length;i++) {
+				if(arr[i]<arr[0]) {
+					prevIn++;
+					tmp[0][prevIn] = arr[i];
+				}else {
+					tmp[1][afterIn] = arr[i];
+					afterIn++;
+				}
+			}
+			int[] prev = new int[prevIn];
+			int[] after = new int[afterIn];
+			int[] pivot = {arr[0]};
+			System.arraycopy(tmp[0], 0, prev, 0, prevIn);
+			System.arraycopy(tmp[1], 0, after, 0, afterIn);
+			
+			int[] prevArr = quickSort(prev);
+			int[] afterArr = quickSort(after);
+			
+			int n =0;
+			int[] completeArr = new int[arr.length]; 
+			completeArr[prevArr.length-1] = arr[0];
+			System.arraycopy(prevArr, 0, completeArr, 0, prevArr.length);
+			System.arraycopy(afterArr, prevArr.length, completeArr, prevArr.length, afterArr.length);
+			
+			return completeArr;
+					
+		}
+	}
 	
 		
 	
