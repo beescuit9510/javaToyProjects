@@ -7,7 +7,12 @@ public class Search {
 	static int linkedList(int[] array, int target) {}
 	static int mergeSort() {}
 	static int hashTable() {}
-	static int hashFunction() {}
+	static int hashFunction1(String str) {}
+	static int breadthFirstSearch(){}
+	static int queue() {}
+	static int DijkstrasAlgorithm(){}
+	static int greedyAlgorithm() {}
+	static int approximationAlgorithm() {}
 	
 	
 	static int[] quickSort(int[] arr) {
