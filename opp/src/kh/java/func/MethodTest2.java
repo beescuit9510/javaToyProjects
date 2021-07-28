@@ -2,8 +2,7 @@ package kh.java.func;
 
 import java.util.Scanner;
 
-public class MethodTest {
-	
+public class MethodTest2 {
 	
 	public void main() {
 		Scanner sc = new Scanner(System.in);
@@ -11,21 +10,15 @@ public class MethodTest {
 		int num1 = sc.nextInt();
 		System.out.println("두번쨰 정수 입력 : ");
 		int num2 = sc.nextInt();
-		
 		Calc c = new Calc();
 		System.out.println(c.mulFunction(num1, num2));
-		System.out.println(c.addFunction(num1, num2));
-		System.out.println(c.subFunction(num1, num2));
-		System.out.println(c.divFunction(num1, num2));
 		
-
+		
 	}
 	
-	public double add(int  num1, int num2) {
-		double sum = num1+(double)num2;
-		return(sum);
-		
+	public int add(int n, int n2) {
+		return(n+n2);
 	}
 
-
 }
+
