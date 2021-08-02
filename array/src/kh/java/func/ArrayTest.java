@@ -503,7 +503,7 @@ public class ArrayTest {
 			}
 			System.out.println();
 		}
-		System.out.println(Math.abs(overlap.size() - 12) + "개 동일");
+		System.out.println(12-overlap.size()+ "개 동일");
 	}
 
 }
