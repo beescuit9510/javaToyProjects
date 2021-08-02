@@ -495,12 +495,15 @@ public class ArrayTest {
 			comNums.add(r.nextInt(45) + 1);
 		}
 		Collection[] arr = { useNums, comNums };
+		HashSet<Integer> overlap = new HashSet<Integer>();
 		for (Collection h : arr) {
-			for (Object i : (HashSet) h) {
+			for (Object i : h) {
+				overlap.add((Integer) i);
 				System.out.print(i + "\t");
 			}
 			System.out.println();
 		}
+		System.out.println(Math.abs(overlap.size() - 12) + "개 동일");
 	}
 
 }
