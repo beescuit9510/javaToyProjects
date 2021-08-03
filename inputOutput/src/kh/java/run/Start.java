@@ -5,6 +5,7 @@ import kh.java.func.CharStream;
 import kh.java.func.FileTest;
 import kh.java.func.StreamTest;
 import kh.java.func.UserMgr;
+import kh.java.func.UserMgrList;
 
 public class Start {
 
@@ -21,8 +22,11 @@ public class Start {
 //		f.fileTest();
 		
 		UserMgr um = new UserMgr();
-		um.test1();
-		um.test2();
+//		um.test1();
+//		um.test2();
+		
+		UserMgrList uml = new UserMgrList();
+		uml.main();
 
 	}
 
