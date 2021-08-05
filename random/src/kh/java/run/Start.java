@@ -7,7 +7,7 @@ public class Start {
 		
 		RandomTest r = new RandomTest();
 //		r.dice();
-		r.$Baskin();
+//		r.$baskin();
 		
 	}
 

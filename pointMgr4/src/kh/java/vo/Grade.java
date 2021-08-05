@@ -33,6 +33,11 @@ public abstract class Grade {
 	}
 
 	public abstract double getBonus();
+	
+	@Override
+	public String toString() {
+		return getGrade()+"\t"+getName()+"\t"+getPoint()+"\t"+getBonus();
+	}
 
 
 }

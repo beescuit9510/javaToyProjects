@@ -1,6 +1,6 @@
 package kh.java.run;
 
-import kh.java.func.ForExam;
+import kh.java.func.StartMultitable;
 import kh.java.func.ForTest;
 import kh.java.func.IfTest;
 import kh.java.func.SwitchTest;
@@ -25,7 +25,7 @@ public class Start {
 //		test2.practice2();
 		
 		ForTest ft = new ForTest();
-//		fT.test1();
+//		ft.test1();
 //		fT.test2();
 //		ft.example2();
 //		ft.example4();
@@ -36,13 +36,11 @@ public class Start {
 		WhileTest test3 = new WhileTest();
 //		test3.example7();
 		
-		ForExam test4 = new ForExam();
-//		test4.example1();
+		StartMultitable test4 = new StartMultitable();
 //		test4.example2();
 //		test4.star21();
 //		test4.star10();
-		test4.$star13$();
-	}
+		test4.$star12$$();	}
 	
 
 }

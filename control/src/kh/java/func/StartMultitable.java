@@ -1,8 +1,8 @@
 package kh.java.func;
 
-public class ForExam {
+public class StartMultitable {
 	
-	public void example1() {
+	public void multiplacationTable() {
 		
 		for(int i=1;i<10;i++) {
 			for(int j=1;j<10;j++) {
@@ -12,7 +12,7 @@ public class ForExam {
 		}
 	}
 	
-	public void example2() {
+	public void multiplacationTable2() {
 		for(int i=1;i<10;i++) {
 			for(int j=2;j<10;j++) {
 				System.out.printf("%d * %d = %d \t",j, i,i*j);				
@@ -111,7 +111,7 @@ public class ForExam {
 		}
 	}
 	
-	public void reStar10() {
+	public void $star10() {
 		for(int i=0;i<5;i++) {
 			for(int j=i;j>0;j--) {
 				System.out.printf(" ");
@@ -138,7 +138,7 @@ public class ForExam {
 	}
 	
 	
-	public void reStar11() {
+	public void $star11() {
 		for(int i=0;i<5;i++) {
 			for(int j=i;j>0;j--) {
 				System.out.printf(" ");
@@ -172,7 +172,7 @@ public class ForExam {
 	
 	}
 	
-	public void $star12$$() {
+	public void $star12() {
 		for(int i=0;i<10;i++) {
 			if(i<6) {
 				for(int j=i;j>0;j--) {
@@ -190,7 +190,7 @@ public class ForExam {
 	}
 	
 	
-	public void $Star12$() {
+	public void $$Star12() {
 		for(int i=0;i<10;i++) {
 				for(int j= i<6? i:10-i;j>0;j--) {
 					System.out.printf("*");					
@@ -214,7 +214,7 @@ public class ForExam {
 			
 	}
 	
-	public void $star13$() {
+	public void $star13() {
 		for(int i=0;i<9;i++) {
 			for(int j= i<4?i:-i+8;j<5;j++) {
 				System.out.printf("*");
