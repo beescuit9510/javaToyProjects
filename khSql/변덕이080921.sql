@@ -22,3 +22,24 @@ SELECT * FROM USER_INFO;
 
 COMMENT ON COLUMN USER_INFO.USER_NAME IS '회원이름';
 COMMENT ON COLUMN USER_INFO.USER_PHONE IS '회원 전화번호';
+
+INSERT INTO USER_INFO VALUES('이윤수1','user01',20,'123456','user01@naver.com', to_date(20020809,'yyyymmdd'),
+                                '서울시 영등포구 선유로','010-1111-2222');
+INSERT INTO USER_INFO VALUES('이윤수1','user01',20,'123456','user01@naver.com', to_date(20020809,'yyyymmdd'),
+                                '서울시 영등포구 여의도','01011112222');
+                                SELECT * FROM USER_INFO WHERE USER_PHONE='01011112222';
+INSERT INTO USER_INFO VALUES('이윤수1','user01',20,'123456','user01@naver.com', to_date(20020809,'yyyymmdd'),
+                                '서울시 영등포구 여의도','010');
+
+                                
+-- CHAR(10) DATA 길이가 10이 안되면 예시 -없이 (01011112222)는 검색이 안될수도 있음.
+-- '01011112222  '로 검색해야 할 수도 있다.
+SELECT * FROM USER_INFO;
+SELECT * FROM USER_INFO WHERE USER_PHONE='010-1111-2222';
+SELECT * FROM USER_INFO WHERE USER_PHONE='01011112222';
+SELECT * FROM USER_INFO WHERE USER_PHONE='010       ';
+
+
+COMMIT;
+
+
