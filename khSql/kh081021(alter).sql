@@ -86,6 +86,24 @@ alter table copy_department
 rename column ADD_COL2 to ADD_COL;
 
 
+
+--7 contraint name 변경
+alter table copy_department
+rename constraint SYS_C007093 to department_id_nn;
+
+
+--8 table name 변경
+alter table copy_department
+rename to change_table_name;
+
+select * from change_table_name;
+
+alter table change_table_name
+rename to copy_department;
+
 select * from copy_department;
 
 
+--- drop : 객체 삭제;
+
+drop table copy_department;
