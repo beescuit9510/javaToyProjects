@@ -397,25 +397,14 @@ begin
     into emp.EMP_ID,emp.EMP_NAME, emp.SALARY, emp.SAL_LEVEL
     from EMPLOYEE
     where EMP_ID='&사번';
-    if(emp.SALARY between 1000000 and 1990000)
-    then
-    emp.SAL_LEVEL := 'E';
-    elsif(emp.SALARY between 0 and 990000)
-    then
-    emp.SAL_LEVEL := 'F';
-    elsif(emp.SALARY between 2000000 and 2990000)
-    then
-    emp.SAL_LEVEL := 'D';
-    elsif(emp.SALARY between 3000000 and 3990000)
-    then
-    emp.SAL_LEVEL := 'C';
-    elsif(emp.SALARY between 4000000 and 4990000)
-    then
-    emp.SAL_LEVEL := 'B';
-    elsif(emp.SALARY > 5000000)
-    then
-    emp.SAL_LEVEL := 'A';
-    end if;
+    case FLOOR(emp.SALARY/1000000)
+            when 1 then emp.SAL_LEVEL := 'F';
+            when 2 then emp.SAL_LEVEL := 'E';
+            when 3 then emp.SAL_LEVEL := 'D';
+            when 4 then emp.SAL_LEVEL := 'C';
+            when 5 then emp.SAL_LEVEL := 'B';
+            else emp.SAL_LEVEL := 'A';
+    end case;
     DBMS_OUTPUT.PUT_LINE('사번: '||emp.EMP_ID);
     DBMS_OUTPUT.PUT_LINE('직원 이름: '||emp.EMP_NAME);
     DBMS_OUTPUT.PUT_LINE('부서코드: '||emp.DEPT_CODE);
