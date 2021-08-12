@@ -398,11 +398,11 @@ begin
     from EMPLOYEE
     where EMP_ID='&사번';
     case FLOOR(emp.SALARY/1000000)
-            when 1 then emp.SAL_LEVEL := 'F';
-            when 2 then emp.SAL_LEVEL := 'E';
-            when 3 then emp.SAL_LEVEL := 'D';
-            when 4 then emp.SAL_LEVEL := 'C';
-            when 5 then emp.SAL_LEVEL := 'B';
+            when 0 then emp.SAL_LEVEL := 'F';
+            when 1 then emp.SAL_LEVEL := 'E';
+            when 2 then emp.SAL_LEVEL := 'D';
+            when 3 then emp.SAL_LEVEL := 'C';
+            when 4 then emp.SAL_LEVEL := 'B';
             else emp.SAL_LEVEL := 'A';
     end case;
     DBMS_OUTPUT.PUT_LINE('사번: '||emp.EMP_ID);
