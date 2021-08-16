@@ -96,10 +96,10 @@ public class PointMgr {
 		int i = db.findMember(view.findMember());
 		if (i == -1) {
 			view.noMemberInList();
-			index = i;
 			view.fail();
 			return false;
 		}
+		index = i;
 		return true;
 	}
 
