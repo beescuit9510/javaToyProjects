@@ -43,7 +43,6 @@ public class MemberController {
 					break;
 				case 7:
 					login();
-					break;
 				case 0:
 					return;
 				default:
@@ -53,12 +52,13 @@ public class MemberController {
 				int sel = view.loginMenu(loginMember.getMemberName());
 				switch (sel) {
 				case 1:
-					view.selectOneMember(loginMember);
+					selectAllMember();
+					break;
+				case 2:
+					selectOneMember(true);
 					break;
 				case 3:
-					deleteMember(loginMember.getMemberName());
-				case 2:
-					loginMember = null;
+					selectOneMember(false);
 					break;
 				}
 
@@ -146,18 +146,6 @@ public class MemberController {
 
 	private void deleteMember() {
 		String name = view.deleteMember();
-		int r = dao.deleteMember(name);
-
-		if (r > 0) {
-			view.successMsg();
-			return;
-		}
-
-		view.failMsg();
-
-	}
-
-	private void deleteMember(String name) {
 		int r = dao.deleteMember(name);
 
 		if (r > 0) {

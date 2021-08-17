@@ -43,7 +43,6 @@ public class MemberController {
 					break;
 				case 7:
 					login();
-					break;
 				case 0:
 					return;
 				default:
@@ -55,10 +54,11 @@ public class MemberController {
 				case 1:
 					view.selectOneMember(loginMember);
 					break;
+				case 2:
+					loginMember=null;
+					break;
 				case 3:
 					deleteMember(loginMember.getMemberName());
-				case 2:
-					loginMember = null;
 					break;
 				}
 
@@ -147,26 +147,25 @@ public class MemberController {
 	private void deleteMember() {
 		String name = view.deleteMember();
 		int r = dao.deleteMember(name);
-
+		
 		if (r > 0) {
 			view.successMsg();
 			return;
 		}
-
+		
 		view.failMsg();
-
+		
 	}
-
 	private void deleteMember(String name) {
 		int r = dao.deleteMember(name);
-
+		
 		if (r > 0) {
 			view.successMsg();
 			return;
 		}
-
+		
 		view.failMsg();
-
+		
 	}
 
 	private void login() {

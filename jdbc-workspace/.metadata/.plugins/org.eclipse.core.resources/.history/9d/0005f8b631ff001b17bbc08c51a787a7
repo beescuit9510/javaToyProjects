@@ -168,21 +168,22 @@ public class MemberDao {
 
 			r = state.executeUpdate(query);
 			conn.commit();
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return r;
 	}
 
-	public int deleteMember(String name) {
+	public boolean deleteMember(String name) {
 		String query = "delete from member where member_name like '" + name + "'";
-		int r = -1;
+		boolean r = false;
 
 		try (Connection conn = DriverManager.getConnection(URL, USER, PW); Statement state = conn.createStatement();) {
-			r = state.executeUpdate(query);
+			int result = state.executeUpdate(query);
+			r = result > 0 ? true : false;
 
-			if (r > 0)
+			if (r)
 				conn.commit();
 			else
 				conn.rollback();
@@ -192,27 +193,6 @@ public class MemberDao {
 		}
 
 		return r;
-
-	}
-
-	public Member login(Member m) {
-		String query = "select * from member where member_id='" + m.getMemberId() + "' and member_pw='"
-				+ m.getMemberPw() + "'";
-
-		try (Connection conn = DriverManager.getConnection(URL, USER, PW);
-				Statement state = conn.createStatement();
-				ResultSet r = state.executeQuery(query);) {
-
-			if (r.next()) {
-				int i = 1;
-				return new Member(r.getString(i++), r.getString(i++), r.getString(i++), r.getString(i++),
-						r.getString(i++), r.getInt(i++), r.getDate(i++));
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
 
 	}
 

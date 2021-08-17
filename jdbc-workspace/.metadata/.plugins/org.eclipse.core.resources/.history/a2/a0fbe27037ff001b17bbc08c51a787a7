@@ -197,7 +197,6 @@ public class MemberDao {
 
 	public Member login(Member m) {
 		String query = "select * from member where member_id='" + m.getMemberId() + "' and member_pw='"
-				+ m.getMemberPw() + "'";
 
 		try (Connection conn = DriverManager.getConnection(URL, USER, PW);
 				Statement state = conn.createStatement();

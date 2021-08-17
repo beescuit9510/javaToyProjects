@@ -20,7 +20,6 @@ public class MemberView {
 		System.out.println("4. 회원 가입 ");
 		System.out.println("5. 회원 정보 변경 ");
 		System.out.println("6. 회원 탈퇴 ");
-		System.out.println("7. 로그인");
 		System.out.println("0. 프로그램 종료");
 		return sc.nextInt();
 
@@ -62,7 +61,7 @@ public class MemberView {
 		sc.nextLine();
 		System.out.println("-------------------회원 가입-------------------");
 		System.out.println("아이디/비밀번호/이름/주소/전화번호/나이 입력 (/로 구분): ");
-		return addMember(6);
+		return addMember(5);
 
 	}
 
@@ -105,27 +104,6 @@ public class MemberView {
 	public String deleteMember() {
 		System.out.println("-------------------회원 탈퇴-------------------");
 		return getName("삭제");
-
-	}
-	
-	public Member login() {
-		System.out.println("-------------------로그인-------------------");
-		Member m = new Member();
-		System.out.println("아이디 입력 :");
-		m.setMemberId(sc.next());
-		System.out.println("비밀번호 입력 :");
-		m.setMemberPw(sc.next());
-		return m;
-	}
-	
-	
-	public int loginMenu(String memberName) {
-		System.out.println("-------------------["+memberName+"]-------------------");
-		System.out.println("1. 내 정보 보기");
-		System.out.println("2. 로그아웃");
-		System.out.println("3. 회원 탈퇴");
-		System.out.println("선택 > ");
-		return sc.nextInt();
 
 	}
 

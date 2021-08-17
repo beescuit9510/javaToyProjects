@@ -168,7 +168,7 @@ public class MemberDao {
 
 			r = state.executeUpdate(query);
 			conn.commit();
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -182,7 +182,7 @@ public class MemberDao {
 		try (Connection conn = DriverManager.getConnection(URL, USER, PW); Statement state = conn.createStatement();) {
 			r = state.executeUpdate(query);
 
-			if (r > 0)
+			if (r>0)
 				conn.commit();
 			else
 				conn.rollback();
@@ -192,27 +192,6 @@ public class MemberDao {
 		}
 
 		return r;
-
-	}
-
-	public Member login(Member m) {
-		String query = "select * from member where member_id='" + m.getMemberId() + "' and member_pw='"
-				+ m.getMemberPw() + "'";
-
-		try (Connection conn = DriverManager.getConnection(URL, USER, PW);
-				Statement state = conn.createStatement();
-				ResultSet r = state.executeQuery(query);) {
-
-			if (r.next()) {
-				int i = 1;
-				return new Member(r.getString(i++), r.getString(i++), r.getString(i++), r.getString(i++),
-						r.getString(i++), r.getInt(i++), r.getDate(i++));
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
 
 	}
 

@@ -10,7 +10,6 @@ public class MemberController {
 
 	private MemberView view;
 	private MemberDao dao;
-	private Member loginMember;
 
 	public MemberController() {
 		super();
@@ -20,47 +19,30 @@ public class MemberController {
 
 	public void main() {
 		while (true) {
-			if (loginMember == null) {
-				int sel = view.showMain();
-				switch (sel) {
-				case 1:
-					selectAllMember();
-					break;
-				case 2:
-					selectOneMember(true);
-					break;
-				case 3:
-					selectOneMember(false);
-					break;
-				case 4:
-					insertMember();
-					break;
-				case 5:
-					editMember();
-					break;
-				case 6:
-					deleteMember();
-					break;
-				case 7:
-					login();
-					break;
-				case 0:
-					return;
-				default:
-					break;
-				}
-			} else {
-				int sel = view.loginMenu(loginMember.getMemberName());
-				switch (sel) {
-				case 1:
-					view.selectOneMember(loginMember);
-					break;
-				case 3:
-					deleteMember(loginMember.getMemberName());
-				case 2:
-					loginMember = null;
-					break;
-				}
+			int sel = view.showMain();
+			switch (sel) {
+			case 1:
+				selectAllMember();
+				break;
+			case 2:
+				selectOneMember(true);
+				break;
+			case 3:
+				selectOneMember(false);
+				break;
+			case 4:
+				insertMember();
+				break;
+			case 5:
+				editMember();
+				break;
+			case 6:
+				deleteMember();
+				break;
+			case 0:
+				return;
+			default:
+				break;
 
 			}
 		}
@@ -135,11 +117,9 @@ public class MemberController {
 
 		int r2 = dao.editMember(id, list);
 
-		if (r2 > 0) {
+		if (r2 > 0)
 			view.successMsg();
-			return;
-		}
-
+		
 		view.failMsg();
 
 	}
@@ -148,37 +128,11 @@ public class MemberController {
 		String name = view.deleteMember();
 		int r = dao.deleteMember(name);
 
-		if (r > 0) {
+		if (r > 1)
 			view.successMsg();
-			return;
-		}
 
 		view.failMsg();
 
-	}
-
-	private void deleteMember(String name) {
-		int r = dao.deleteMember(name);
-
-		if (r > 0) {
-			view.successMsg();
-			return;
-		}
-
-		view.failMsg();
-
-	}
-
-	private void login() {
-		Member m = view.login();
-		loginMember = dao.login(m);
-
-		if (loginMember == null) {
-			view.failMsg();
-			return;
-		}
-
-		view.successMsg();
 	}
 
 }
