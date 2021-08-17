@@ -1,5 +1,6 @@
 package member.dao;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import com.sun.source.tree.WhileLoopTree;
 
 import member.vo.Member;
 
@@ -93,7 +96,7 @@ public class MemberDao {
 		else
 			query = "select * from member where member_name like'%" + memberIdOrName + "%'";
 
-		try (Connection conn = DriverManager.getConnection(URL, USER, PW);
+		try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "jdbc", "1234");
 				Statement state = conn.createStatement();
 				ResultSet r = state.executeQuery(query);) {
 
@@ -125,7 +128,8 @@ public class MemberDao {
 
 		String query = "insert into member values(" + values + "sysdate)";
 
-		try (Connection conn = DriverManager.getConnection(URL, USER, PW); Statement state = conn.createStatement();) {
+		try (Connection conn = DriverManager.getConnection(URL, USER, PW);
+				Statement state = conn.createStatement();) {
 
 			result = state.executeUpdate(query);
 			// insert/update/delete excuteUpdate 사용해서 결과로 정수 리턴 !
@@ -168,8 +172,8 @@ public class MemberDao {
 
 			int intR = state.executeUpdate(query);
 			conn.commit();
-			if (intR > 0)
-				r = true;
+			if(intR>0)
+				r=true;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -189,7 +193,6 @@ public class MemberDao {
 				conn.commit();
 			else
 				conn.rollback();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
