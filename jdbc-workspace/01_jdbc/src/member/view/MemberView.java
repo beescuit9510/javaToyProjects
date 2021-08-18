@@ -75,7 +75,7 @@ public class MemberView {
 			strArr[i++] = str.nextToken();
 		}
 
-		if (strArr[length-1] != null)
+		if (strArr[length - 1] != null)
 			return strArr;
 
 		System.out.println("잘못 입력하셨습니다. 다시 시도해주세요.");
@@ -96,7 +96,12 @@ public class MemberView {
 		return getId("수정");
 	}
 
-	public String[] editMember(boolean delete) {
+	public String[] editMember(boolean isMemberinDB) {
+		if (!isMemberinDB) {
+			emptyMember();
+			failMsg();
+			return null;
+		}
 		sc.nextLine();
 		System.out.println("비밀번호/주소/전화번호 입력 (/로 구분): ");
 		return addMember(3);
@@ -107,7 +112,7 @@ public class MemberView {
 		return getName("삭제");
 
 	}
-	
+
 	public Member login() {
 		System.out.println("-------------------로그인-------------------");
 		Member m = new Member();
@@ -117,15 +122,20 @@ public class MemberView {
 		m.setMemberPw(sc.next());
 		return m;
 	}
-	
-	
+
 	public int loginMenu(String memberName) {
-		System.out.println("-------------------["+memberName+"]-------------------");
+		System.out.println("-------------------[" + memberName + "]-------------------");
 		System.out.println("1. 내 정보 보기");
 		System.out.println("2. 로그아웃");
 		System.out.println("3. 회원 탈퇴");
+		System.out.println("4. 회원 정보 수정");
 		System.out.println("선택 > ");
 		return sc.nextInt();
+
+	}
+	
+	public void memberAlreadyExist() {
+		System.out.println("이미 있는 아이디 입니다. 다시 시도해주세요.");
 
 	}
 

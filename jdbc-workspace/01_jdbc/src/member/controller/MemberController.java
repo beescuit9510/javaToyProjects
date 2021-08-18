@@ -53,13 +53,17 @@ public class MemberController {
 				int sel = view.loginMenu(loginMember.getMemberName());
 				switch (sel) {
 				case 1:
-					view.selectOneMember(loginMember);
+					selectOneMember(false);
 					break;
 				case 3:
-					deleteMember(loginMember.getMemberName());
+					deleteMember();
 				case 2:
 					loginMember = null;
 					break;
+				case 4:
+					editMember();
+					break;
+
 				}
 
 			}
@@ -82,7 +86,10 @@ public class MemberController {
 		String memberIdOrName = null;
 		ArrayList<Member> list = null;
 
-		if (searchById == true) {
+		if (loginMember != null) {
+			String id = loginMember.getMemberId();
+			list = dao.selectOneMember(id, true);
+		} else if (searchById == true) {
 			memberIdOrName = view.getId("조회");
 			list = dao.selectOneMember(memberIdOrName, true);
 		} else {
@@ -92,7 +99,6 @@ public class MemberController {
 
 		if (list == null) {
 			view.emptyMember();
-			return;
 		} else if (list.size() == 1) {
 			Member m = list.get(0);
 			view.selectOneMember(m);
@@ -103,8 +109,19 @@ public class MemberController {
 	}
 
 	private void insertMember() {
+		String[] list = view.insertMember();
+		boolean isMemberInDB = true;
 
-		int r = dao.insertMember(view.insertMember());
+		if (list != null)
+			isMemberInDB = dao.memberInDB(list[0]);
+
+		if (isMemberInDB) {
+			view.memberAlreadyExist();
+			view.failMsg();
+			return;
+		}
+
+		int r = dao.insertMember(list);
 
 		if (r > 0) {
 			view.successMsg();
@@ -117,36 +134,24 @@ public class MemberController {
 	}
 
 	private void editMember() {
-		String id = view.editMember();
-		boolean r = dao.memberInDB(id);
+		boolean isMemberInDB = false;
+		String id = null;
 
-		if (!r) {
-			view.emptyMember();
-			view.failMsg();
-			return;
+		if (loginMember == null) {
+			id = view.editMember();
+			isMemberInDB = dao.memberInDB(id);
+		} else {
+			id = loginMember.getMemberId();
+			isMemberInDB = true;
 		}
 
-		String[] list = view.editMember(r);
+		String[] list = view.editMember(isMemberInDB);
 
 		if (list == null) {
 			return;
-
 		}
 
-		int r2 = dao.editMember(id, list);
-
-		if (r2 > 0) {
-			view.successMsg();
-			return;
-		}
-
-		view.failMsg();
-
-	}
-
-	private void deleteMember() {
-		String name = view.deleteMember();
-		int r = dao.deleteMember(name);
+		int r = dao.editMember(id, list);
 
 		if (r > 0) {
 			view.successMsg();
@@ -157,7 +162,13 @@ public class MemberController {
 
 	}
 
-	private void deleteMember(String name) {
+	private void deleteMember() {
+		String name = loginMember.getMemberName();
+
+		if (name == null) {
+			name = view.deleteMember();
+		}
+
 		int r = dao.deleteMember(name);
 
 		if (r > 0) {

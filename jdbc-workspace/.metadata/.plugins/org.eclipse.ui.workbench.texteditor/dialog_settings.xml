@@ -6,12 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="memberIdOrName"/>
+		<item key="selection" value="i++"/>
 		<list key="findhistory">
+			<item value="0"/>
 			<item value="memberId"/>
 			<item value="String"/>
 		</list>
 		<list key="replacehistory">
+			<item value="i++"/>
 			<item value="memberIdOrName"/>
 			<item value=" "/>
 		</list>
