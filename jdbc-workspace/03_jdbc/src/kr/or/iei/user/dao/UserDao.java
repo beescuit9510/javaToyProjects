@@ -94,6 +94,7 @@ public class UserDao {
 			int age = Integer.parseInt(list[list.length-2]);
 			prepared.setInt(list.length-1, age);
 		}
+
 		prepared.setString(list.length, list[list.length-1]);
 		for (int i = 1; i<4; i++) {
 			prepared.setString(i, list[i - 1]);

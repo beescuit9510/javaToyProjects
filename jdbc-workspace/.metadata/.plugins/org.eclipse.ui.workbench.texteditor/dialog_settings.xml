@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="i++"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="char no = (char) (49 + USER_NO++)"/>
 			<item value="&#x09;&#x09;&#x09;else"/>
 			<item value="0"/>
 			<item value="memberId"/>

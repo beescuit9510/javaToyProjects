@@ -19,7 +19,7 @@ public class UserView {
 	}
 
 	public int loginMain(String name) {
-		System.out.println("-----------["+name+"]-----------");
+		System.out.println("-----------[" + name + "]-----------");
 		System.out.println("1. 내 정보 보기");
 		System.out.println("2. 내 정보 수정");
 		System.out.println("3. 회원 탈퇴");
@@ -29,15 +29,11 @@ public class UserView {
 	}
 
 	public void resultMsg(boolean result) {
-		if (result)
-			System.out.println("성공 !");
-		else
-			System.out.println("실패 !");
-	System.out.println();
-	System.out.println();
-	System.out.println();
+		System.out.println(result ? "성공 !" : "실패");
+		System.out.println();
+		System.out.println();
+		System.out.println();
 	}
-
 
 	public String[] getList(String id, boolean edit) {
 		sc.nextLine();
@@ -46,7 +42,7 @@ public class UserView {
 		System.out.println(edit ? editStr : insert);
 
 		StringTokenizer tokens = new StringTokenizer(sc.nextLine(), "/");
-		
+
 		String[] list = new String[edit ? 4 : 5];
 
 		int i = 0;
@@ -54,7 +50,7 @@ public class UserView {
 			list[i++] = tokens.nextToken();
 		}
 		list[i++] = id;
-		
+
 		return list.length <= i ? list : null;
 	}
 
@@ -66,6 +62,7 @@ public class UserView {
 		System.out.println("잘못된 입력 입니다. 다시 시도해주세요.");
 
 	}
+
 	public void wrongIdOrPw() {
 		System.out.println("아이디 혹은 비밀번호를 다시 확인해주세요.");
 	}
@@ -74,6 +71,7 @@ public class UserView {
 		System.out.println("아이디 입력 : ");
 		return sc.next();
 	}
+
 	public String getPw() {
 		System.out.println("비밀번호 입력 : ");
 		return sc.next();
