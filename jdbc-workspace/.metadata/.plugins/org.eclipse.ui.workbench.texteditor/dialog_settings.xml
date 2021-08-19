@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="i++"/>
 		<list key="findhistory">
+			<item value="&#x09;&#x09;&#x09;else"/>
 			<item value="0"/>
 			<item value="memberId"/>
 			<item value="String"/>

@@ -26,6 +26,7 @@ public class MemberDao {
 
 	public ArrayList<Member> selectMember(boolean printAllMember, boolean searchById, String searchInfo)
 			throws SQLException {
+
 		String where = searchById ? " member_id = ? " : " member_name like ?";
 		String query = "select * from member";
 		query = query + " where" + where;
