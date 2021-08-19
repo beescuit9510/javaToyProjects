@@ -14,8 +14,13 @@ insert into member values('cat1234','2222','고양','서울시 강서구','010-2
 insert into member values('dog1234','3333','개','서울시 강남구','010-3333-3333',2, sysdate);
 insert into member values('bunny1234','4567','토깽이','서울시 강서구','010-4444-5555',21, sysdate);
 insert into member values('duck1234','5678','오리','서울시 강서구','010-5555-5555',42, sysdate);
-
 insert into member values('elephant','0000','코끼리','서울시 구로구','010-1234-5555',22, sysdate);
 
 select * from member;
+truncate table member;
 commit;
+
+insert into member values('byunduck1111','1234','변','서울시 강서구','010-5555-5555',9, sysdate);
+insert into member values('byunduck2222','1234','변호사','서울시 강서구','010-5555-5555',9, sysdate);
+insert into member values('byunduck3333','1234','변기','서울시 강서구','010-5555-5555',9, sysdate);
+
