@@ -1,6 +1,6 @@
-package kr.or.iei.user.run;
+package kr.or.iei.run;
 
-import kr.or.iei.user.controller.UserController;
+import kr.or.iei.controller.UserController;
 
 public class Start {
 

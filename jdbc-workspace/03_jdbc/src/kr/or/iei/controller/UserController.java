@@ -1,30 +1,35 @@
-package kr.or.iei.user.controller;
+package kr.or.iei.controller;
 
 import java.sql.SQLException;
 
-import kr.or.iei.user.dao.UserDao;
-import kr.or.iei.user.view.UserView;
-import kr.or.iei.user.vo.User;
+import kr.or.iei.dao.UserDao;
+import kr.or.iei.view.UserView;
+import kr.or.iei.vo.User;
 
 public class UserController {
 	UserView view = new UserView();
 	UserDao dao = new UserDao();
 	User user;
 	boolean login;
+	BoardController boardController;
 
 	public void main() {
 		try {
 			while (true) {
-				int sel = view.main();
-				switch (sel) {
-				case 1:
-					login();
-					break;
-				case 2:
-					insertNdEditUser(false);
-					break;
-				case 3:
-					return;
+				int sel = 0;
+				while (!login) {
+					sel = view.main();
+					switch (sel) {
+					case 1:
+						login();
+						break;
+					case 2:
+						insertNdEditUser(false);
+						break;
+					case 3:
+						return;
+
+					}
 				}
 				while (login) {
 					sel = view.loginMain(user.getUserName());
@@ -40,6 +45,9 @@ public class UserController {
 					case 4:
 						logout();
 						break;
+					case 5:
+						switchMain();
+						break;
 
 					}
 				}
@@ -50,6 +58,11 @@ public class UserController {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void switchMain() {
+		BoardController ctrl = new BoardController(user);
+		ctrl.main();
 	}
 
 	private void insertNdEditUser(boolean edit) throws SQLException {
@@ -91,10 +104,10 @@ public class UserController {
 		login = dao.isUserInDB(id, pw);
 		if (!login) {
 			view.wrongIdOrPw();
-			view.resultMsg(login);			
+			view.resultMsg(login);
 			return;
 		}
-		view.resultMsg(login);			
+		view.resultMsg(login);
 		user = dao.selectUser(id);
 	}
 

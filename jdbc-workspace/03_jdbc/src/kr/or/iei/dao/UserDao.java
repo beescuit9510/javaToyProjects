@@ -1,12 +1,14 @@
-package kr.or.iei.user.dao;
+package kr.or.iei.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import kr.or.iei.user.vo.User;
+import kr.or.iei.vo.Board;
+import kr.or.iei.vo.User;
 
 public class UserDao {
 
@@ -81,22 +83,21 @@ public class UserDao {
 
 	}
 
-
 	public int insertNdEditUser(String[] list, boolean edit) throws SQLException {
 		String editStr = "update user_tbl set user_pw = ?, user_name = ?, user_phone = ? where user_id = ?";
 		String insert = "insert into user_tbl(user_no, user_pw, user_name, user_phone, user_age, user_id) values(squ.nextval,?,?,?,?,?)";
 		String query = edit ? editStr : insert;
-		
+
 		Connection conn = DriverManager.getConnection(URL, USER, PW);
 		PreparedStatement prepared = conn.prepareStatement(query);
 
-		if(!edit) {
-			int age = Integer.parseInt(list[list.length-2]);
-			prepared.setInt(list.length-1, age);
+		if (!edit) {
+			int age = Integer.parseInt(list[list.length - 2]);
+			prepared.setInt(list.length - 1, age);
 		}
 
-		prepared.setString(list.length, list[list.length-1]);
-		for (int i = 1; i<4; i++) {
+		prepared.setString(list.length, list[list.length - 1]);
+		for (int i = 1; i < 4; i++) {
 			prepared.setString(i, list[i - 1]);
 		}
 
@@ -111,5 +112,4 @@ public class UserDao {
 		prepared.close();
 		return r;
 	}
-
 }

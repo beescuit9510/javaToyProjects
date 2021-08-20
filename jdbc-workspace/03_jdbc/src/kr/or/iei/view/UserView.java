@@ -1,9 +1,10 @@
-package kr.or.iei.user.view;
+package kr.or.iei.view;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import kr.or.iei.user.vo.User;
+import kr.or.iei.vo.Board;
+import kr.or.iei.vo.User;
 
 public class UserView {
 
@@ -24,12 +25,14 @@ public class UserView {
 		System.out.println("2. 내 정보 수정");
 		System.out.println("3. 회원 탈퇴");
 		System.out.println("4. 로그아웃");
+		System.out.println("5. 게시판가기");
 		System.out.println("선택 > ");
 		return sc.nextInt();
 	}
 
+
 	public void resultMsg(boolean result) {
-		System.out.println(result ? "성공 !" : "실패");
+		System.out.println(result ? "성공 !" : "실패 !");
 		System.out.println();
 		System.out.println();
 		System.out.println();
@@ -82,5 +85,6 @@ public class UserView {
 		System.out.println(user);
 
 	}
+
 
 }

@@ -1,4 +1,4 @@
-package kr.or.iei.user.vo;
+package kr.or.iei.vo;
 
 public class User {
 
