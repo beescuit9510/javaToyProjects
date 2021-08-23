@@ -42,6 +42,14 @@ public class MemberService {
 		return r;
 	}
 
+	public boolean isMemberInDB(String id, String pw) {
+		Connection conn = JDBCTemplate.getConnection();
+		boolean r = false;
+		r = dao.isMemberInDB(conn, id, pw);
+		JDBCTemplate.close(conn);
+		return r;
+	}
+
 	public int deleteMember(String id) {
 		Connection conn = JDBCTemplate.getConnection();
 		int r = -1;

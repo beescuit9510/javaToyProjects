@@ -62,6 +62,28 @@ public class MemberDao {
 
 		return r;
 	}
+	
+	public boolean isMemberInDB(Connection conn, String id, String pw) {
+		String query = "select * from member where member_id = ? and member_pw = ?";
+		PreparedStatement state = null;
+		ResultSet result = null;
+		boolean r = false;
+		try {
+			state = conn.prepareStatement(query);
+			state.setString(1, id);
+			state.setString(2, pw);
+			result = state.executeQuery();
+			r = result.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(state);
+			JDBCTemplate.close(result);
+		}
+
+		return r;
+	}
+
 
 	public int insertMember(Connection conn, String[] list) {
 		String query = "insert into member values(?,?,?,?,?,?,sysdate)";
