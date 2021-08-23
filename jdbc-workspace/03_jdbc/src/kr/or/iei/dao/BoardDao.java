@@ -103,7 +103,7 @@ public class BoardDao {
 		return boolR;
 	}
 
-	public int insertNdDeletePost(String[] list, int board_no, boolean edit) throws SQLException {
+	public int insertNdUpdatePost(String[] list, int board_no, boolean edit) throws SQLException {
 		String editStr = "update board_tbl set board_title = ? , board_content = ? where board_no = '" + board_no + "'";
 		String insert = "insert into board_tbl(board_no,board_title,board_content,board_writer,board_count,enroll_date) values(board_squ.nextval,?,?,?,0,sysdate)";
 		String query = edit ? editStr : insert;

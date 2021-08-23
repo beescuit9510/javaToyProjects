@@ -23,10 +23,10 @@ public class BoardController {
 				int sel = view.boardMenu(user.getUserName());
 				switch (sel) {
 				case 1:
-					viewAllPost();
+					viewPost(false);
 					break;
 				case 2:
-					viewPost();
+					viewPost(true);
 					break;
 				case 3:
 					editOrWriterPost(false);
@@ -50,10 +50,12 @@ public class BoardController {
 	private void deletePost() throws SQLException {
 		int boardNo = view.getBoradNo();
 		boolean isBoardWriter = dao.isBoardWriter(boardNo, user.getUserNo());
+		
 		if (isBoardWriter) {
 			view.resultMsg(dao.deletePost(boardNo) > 0);
 			return;
 		}
+		
 		view.isBoardWriter(isBoardWriter);
 		view.resultMsg(isBoardWriter);
 
@@ -62,23 +64,21 @@ public class BoardController {
 	private void editOrWriterPost(boolean edit) throws SQLException {
 		int boardNo = edit ? view.getBoradNo() : -1;
 		boolean isBoardWriter = !edit ? true : dao.isBoardWriter(boardNo, user.getUserNo());
+		
 		if (isBoardWriter) {
 			String[] list = view.getBoradList(edit);
 			if (!edit)
 				list[2] = Integer.toString(user.getUserNo());
-			dao.insertNdDeletePost(list, boardNo, edit);
+			dao.insertNdUpdatePost(list, boardNo, edit);
 		}
+		
 		view.isBoardWriter(isBoardWriter);
 		view.resultMsg(isBoardWriter);
 	}
 
-	private void viewPost() throws SQLException {
-		Board[] posts = dao.selectPost(view.getBoradNo(), false);
-		view.printPost(posts, user.getUserNo(), user.getUserName());
-	}
-
-	private void viewAllPost() throws SQLException {
-		Board[] posts = dao.selectPost(-1, true);
+	private void viewPost(boolean readAll) throws SQLException {
+		int boardNo = readAll? -1:view.getBoradNo();
+		Board[] posts = dao.selectPost(boardNo, readAll);
 		view.printAllPost(posts);
 	}
 
