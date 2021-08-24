@@ -22,9 +22,11 @@ public class MemberDao {
 		String searchBy = searchById ? "member_id" : "member_name";
 		searchInfo = searchById ? searchInfo : searchInfo + "%";
 		String query = "select * from member where " + searchBy + " like ?";
+		
 		PreparedStatement state = null;
 		ResultSet result = null;
 		ArrayList<Member> list = null;
+		
 		try {
 			state = conn.prepareStatement(query);
 			state.setString(1, searchInfo);

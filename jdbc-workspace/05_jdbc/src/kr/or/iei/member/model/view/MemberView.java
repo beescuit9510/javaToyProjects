@@ -87,7 +87,7 @@ public class MemberView {
 	}
 	
 	public String getName() {
-		System.out.println("아이디 입력 : ");
+		System.out.println("이름 입력 : ");
 		return sc.next();
 	}
 
