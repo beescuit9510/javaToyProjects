@@ -50,7 +50,7 @@ public class View {
 		list.add(sc.next());
 		System.out.println(" 핸드폰 입력 :");
 		list.add(sc.next());
-		System.out.println(" 등급 입력[1.직원/2.손님] :");
+		System.out.println(" 등급 입력[1.손님/2.직원] :");
 		list.add(sc.next());
 		return list;
 	}

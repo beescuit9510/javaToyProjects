@@ -13,11 +13,8 @@ public class MainController {
 	Member loginMember =null;
 			
 			
-			
-			
 	public void main() {
 		while (true) {
-			if(loginMember == null) {
 				int sel = view.main();
 				switch (sel) {
 				case 1:
@@ -29,9 +26,6 @@ public class MainController {
 				case 0:
 					return;
 				}
-			}else {
-				loginMenu();
-			}
 			
 		}
 
@@ -40,9 +34,13 @@ public class MainController {
 	private void loginMenu() {
 		String lv = loginMember.getMember_lev();
 		if (lv == "직원") {
-			view.staffMain();
+			StaffController sc = new StaffController();
+			sc.main();
+			loginMember = null;
 		}else {
-			view.customerMain(loginMember.getMember_name());
+			CustomerController cc = new CustomerController();
+			cc.main(loginMember.getMember_no(), loginMember.getMember_name());
+			loginMember = null;
 		}
 		
 	}
@@ -62,6 +60,7 @@ public class MainController {
 		loginMember = service.login(idPw);
 		if (loginMember !=null) {
 			view.printMsg("로그인 성공");
+			loginMenu();
 		}else {
 			view.printMsg("로그인 실패");
 		}

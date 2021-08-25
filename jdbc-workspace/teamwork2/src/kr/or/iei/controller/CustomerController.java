@@ -8,6 +8,7 @@ import kr.or.iei.vo.Room;
 
 public class CustomerController {
 	private int member_no;
+	private String name;
 	private View view;
 	private RoomService service;
 
@@ -17,10 +18,11 @@ public class CustomerController {
 		service = new RoomService();
 	}
 
-	public void main(int member_no) {
+	public void main(int member_no, String name) {
 		this.member_no = member_no;
+		this.name = name;
 		while (true) {
-			int sel = view.main();
+			int sel = view.customerMain(name);
 			switch (sel) {
 			case 1:
 				printAllRoom();

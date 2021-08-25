@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kr.or.iei.member.view.MemberView"/>
-    <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicIntegerFieldUpdater"/>
     <fullyQualifiedTypeName name="kr.or.iei.member.controller.UserController"/>
     <fullyQualifiedTypeName name="kr.or.iei.member.view.UserView"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Member"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="common.JDBCTemplate"/>
+    <fullyQualifiedTypeName name="kr.or.iei.controller.CustomerController"/>
+    <fullyQualifiedTypeName name="kr.or.iei.controller.StaffController"/>
 </qualifiedTypeNameHistroy>
