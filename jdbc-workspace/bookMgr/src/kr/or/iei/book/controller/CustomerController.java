@@ -69,7 +69,7 @@ public class CustomerController {
 	}
 
 	private void printMyInfo() {
-		Member m = service.login(new String[] { id, pw });
+		Member m = service.login(no);
 		ArrayList<Object> object = new ArrayList<Object>();
 		object.add(m);
 		view.print(object);

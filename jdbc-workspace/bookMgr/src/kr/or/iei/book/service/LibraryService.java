@@ -20,6 +20,14 @@ public class LibraryService {
 		JDBCTemplate.close(conn);
 		return m;
 	}
+	
+	public Member login(int no) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = null;
+		m = dao.login(conn, no);
+		JDBCTemplate.close(conn);
+		return m;
+	}
 
 	public ArrayList<Object> select(char ch) {
 		Connection conn = JDBCTemplate.getConnection();

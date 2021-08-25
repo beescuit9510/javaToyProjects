@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="result"/>
+		<item key="selection" value="reservers"/>
 		<list key="findhistory">
+			<item value="members"/>
 			<item value="state"/>
 			<item value="conn"/>
 			<item value="char no = (char) (49 + USER_NO++)"/>
@@ -17,6 +18,7 @@
 			<item value="String"/>
 		</list>
 		<list key="replacehistory">
+			<item value="reservers"/>
 			<item value="result"/>
 			<item value="conn"/>
 			<item value="state"/>

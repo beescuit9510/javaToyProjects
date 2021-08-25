@@ -21,6 +21,7 @@ public class LibraryDao {
 	private String insertBook = null;
 	private String insertRent = null;
 	private String select = null;
+	private String selectMyInfo = null;
 	private String selectBook = null;
 	private String selectMember = null;
 	private String selectRent = null;
@@ -34,6 +35,7 @@ public class LibraryDao {
 			Properties prop = new Properties();
 			prop.load(fr);
 			select = prop.getProperty("select");
+			selectMyInfo = prop.getProperty("selectMyInfo");
 			selectBook = prop.getProperty("selectBook");
 			selectMember = prop.getProperty("selectMember");
 			selectRent = prop.getProperty("selectRent");
@@ -59,7 +61,6 @@ public class LibraryDao {
 		PreparedStatement state = null;
 		ResultSet r = null;
 		try {
-
 			state = conn.prepareStatement(select);
 
 			int i = 1;
@@ -71,6 +72,31 @@ public class LibraryDao {
 
 			if (r.next())
 				m = getMember(r);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(state);
+			JDBCTemplate.close(r);
+		}
+
+		return m;
+	}
+
+	public Member login(Connection conn, int no) {
+		Member m = null;
+		PreparedStatement state = null;
+		ResultSet r = null;
+		try {
+
+			state = conn.prepareStatement(selectMyInfo);
+			state.setInt(1, no);
+			state.setInt(2, no);
+
+			r = state.executeQuery();
+
+			if (r.next())
+				m = getMemberWithRent(r);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -140,11 +166,16 @@ public class LibraryDao {
 	}
 
 	public Rent getRent(ResultSet r) throws SQLException {
-		return new Rent(r.getInt(1), r.getInt(2), r.getInt(3), r.getDate(4), r.getDate(5), r.getInt(6));
+		return new Rent(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getDate(5), r.getDate(6), r.getInt(7));
 	}
 
 	public Member getMember(ResultSet r) throws SQLException {
 		return new Member(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5), r.getInt(6));
+	}
+
+	public Member getMemberWithRent(ResultSet r) throws SQLException {
+		return new Member(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5), r.getInt(6),
+				r.getInt(7));
 	}
 
 	public Book getBook(ResultSet r) throws SQLException {

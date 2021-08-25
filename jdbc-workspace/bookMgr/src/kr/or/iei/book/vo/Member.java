@@ -8,6 +8,20 @@ public class Member {
 	private String name;
 	private String phone;
 	private int grade;
+	private int rentN;
+
+	public Member(int member_no, String id, String pw, String name, String phone, int grade, int rentN) {
+		super();
+		Member_no = member_no;
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.phone = phone;
+		this.grade = grade;
+		this.rentN = rentN;
+	}
+	
+	
 
 	public Member(int member_no, String id, String pw, String name, String phone, int grade) {
 		super();
@@ -18,6 +32,8 @@ public class Member {
 		this.phone = phone;
 		this.grade = grade;
 	}
+
+
 
 	public int getMember_no() {
 		return Member_no;
@@ -69,7 +85,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return Member_no +"\t"+ id +"\t"+ pw +"\t"+ name +"\t"+ phone +"\t"+grade;
+		return Member_no +"\t"+ id +"\t"+ pw +"\t"+ name +"\t"+ phone +"\t"+grade+'\t'+rentN;
 	}
 	
 
