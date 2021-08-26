@@ -33,7 +33,7 @@ public class MainController {
 
 	private void loginMenu() {
 		String lv = loginMember.getMember_lev();
-		if (lv == "직원") {
+		if (lv.equals("직원")) {
 			StaffController sc = new StaffController();
 			sc.main();
 			loginMember = null;

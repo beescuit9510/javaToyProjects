@@ -42,15 +42,15 @@ public class View {
 
 	public ArrayList<String> getRegisterList() {
 		ArrayList<String> list = new ArrayList<String>();
-		System.out.println(" 아이디 입력 :");
+		System.out.println("아이디 입력 :");
 		list.add(sc.next());
-		System.out.println(" 비밀번호 입력 :");
+		System.out.println("비밀번호 입력 :");
 		list.add(sc.next());
-		System.out.println(" 이름 입력 :");
+		System.out.println("이름 입력 :");
 		list.add(sc.next());
-		System.out.println(" 핸드폰 입력 :");
+		System.out.println("핸드폰 입력 :");
 		list.add(sc.next());
-		System.out.println(" 등급 입력[1.손님/2.직원] :");
+		System.out.println("등급 입력[1.손님/2.직원] :");
 		list.add(sc.next());
 		return list;
 	}
@@ -63,7 +63,7 @@ public class View {
 	}
 
 	public void printRoom(ArrayList<Room> rooms) {
-		System.out.println("매물번호\t지역\t평수\t방갯수");
+		System.out.println("매물번호\t지역\t평수\t방갯수\t예약여부");
 		for (Room m : rooms) {
 			System.out.println(m);
 		}

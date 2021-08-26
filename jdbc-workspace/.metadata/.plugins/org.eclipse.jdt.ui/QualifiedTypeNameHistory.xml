@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kr.or.iei.member.controller.UserController"/>
-    <fullyQualifiedTypeName name="kr.or.iei.member.view.UserView"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Member"/>
-    <fullyQualifiedTypeName name="sun.security.util.Length"/>
-    <fullyQualifiedTypeName name="kr.or.iei.member.vo.User"/>
-    <fullyQualifiedTypeName name="LeetCodeMedium.ListNode"/>
-    <fullyQualifiedTypeName name="kr.or.iei.user.vo.Board"/>
     <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicScrollPaneUI.ViewportChangeHandler"/>
     <fullyQualifiedTypeName name="kr.or.iei.user.dao.UserDao"/>
     <fullyQualifiedTypeName name="kr.or.iei.controller.BoardController"/>
@@ -30,7 +23,6 @@
     <fullyQualifiedTypeName name="kr.or.iei.book.service.LibararyService"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="com.sun.source.tree.WhileLoopTree"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="kr.or.iei.book.controller.CustomerController"/>
     <fullyQualifiedTypeName name="kr.or.iei.book.controller.StaffController"/>
@@ -39,7 +31,6 @@
     <fullyQualifiedTypeName name="kr.or.iei.book.dao.LibraryDao"/>
     <fullyQualifiedTypeName name="kr.or.iei.book.service.LibraryService"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
-    <fullyQualifiedTypeName name="com.sun.tools.javac.code.Attribute.Array"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="kr.or.iei.book.vo.Member"/>
     <fullyQualifiedTypeName name="kr.or.iei.book.vo.Book"/>
@@ -60,4 +51,13 @@
     <fullyQualifiedTypeName name="common.JDBCTemplate"/>
     <fullyQualifiedTypeName name="kr.or.iei.controller.CustomerController"/>
     <fullyQualifiedTypeName name="kr.or.iei.controller.StaffController"/>
+    <fullyQualifiedTypeName name="main.MyBinarySearch"/>
+    <fullyQualifiedTypeName name="main.SequentialSearch"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.code.Attribute.Array"/>
+    <fullyQualifiedTypeName name="main.MyComparator"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="main.MyComparator.Animal"/>
 </qualifiedTypeNameHistroy>
