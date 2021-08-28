@@ -1,4 +1,4 @@
-package main;
+package mySearch;
 
 public class MyBinarySearch {
 

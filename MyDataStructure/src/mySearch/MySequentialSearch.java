@@ -1,10 +1,10 @@
-package main;
+package mySearch;
 
 public class MySequentialSearch {
 
 	public int[] sequentialSearch(int[] list, int target) {
-//		ì„ í˜•ê²€ìƒ‰ì„ ì´ìš©í•¨.
-//		ë¦¬ìŠ¤íŠ¸ì—ì„œ íƒ€ê²Ÿê³¼ ì¼ì¹˜í•˜ëŠ” ê°’ì˜ ì¸ë±ìŠ¤ë¥¼ ëª¨ì•„ ë¦¬í„´.
+//		?„ ?˜•ê²??ƒ‰?„ ?´?š©?•¨.
+//		ë¦¬ìŠ¤?Š¸?—?„œ ??ê²Ÿê³¼ ?¼ì¹˜í•˜?Š” ê°’ì˜ ?¸?±?Š¤ë¥? ëª¨ì•„ ë¦¬í„´.
 		
 		String indexes = "";
 		

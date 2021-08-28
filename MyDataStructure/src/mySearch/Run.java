@@ -1,4 +1,4 @@
-package main;
+package mySearch;
 
 import java.util.Arrays;
 
@@ -17,6 +17,8 @@ public class Run {
 		int[] list3 = {8,9,9,9,10,11,11,12};
 		
 		int[][] lists = {list,list2,list3};
+		
+		
 		
 
 
