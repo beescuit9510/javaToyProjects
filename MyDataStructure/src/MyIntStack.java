@@ -1,6 +1,6 @@
 public class MyIntStack {
 	private int max;
-	private int ptr = -1;
+	private int ptr;
 	private int[] stk;
 
 	public MyIntStack(int max) {
@@ -29,33 +29,32 @@ public class MyIntStack {
 	}
 
 	public boolean push(int i) throws OverflowIntStackException{
-		if (++ptr >= max)
+		if (ptr >= max)
 			throw new OverflowIntStackException();
 
-		stk[ptr] = i;
+		stk[ptr++] = i;
 		return true;
 	}
 
 	public int pop() throws EmptyIntStackException{
-		if (ptr <= 0)
+		if (--ptr < 0)
 			throw new EmptyIntStackException();
 
 		int popped = stk[ptr];
 		stk[ptr] = 0;
-		ptr--;
 		return popped;
 	}
 	
 	public int peak() throws EmptyIntStackException{
-//		if(ptr <= -1 || ptr >= this.max) {
-//			throw new EmptyIntStackException();
-//		}
+		if(ptr <= 0) {
+			throw new EmptyIntStackException();
+		}
 		
-		return stk[ptr];
+		return stk[ptr-1];
 	}
 
 	public int indexOf(int target) {
-		for(int i=this.ptr;i>-1;i--) {
+		for(int i=this.ptr-1;i>-1;i--) {
 			if(stk[i]==target)
 				return i;
 		}
