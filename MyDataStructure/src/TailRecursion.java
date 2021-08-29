@@ -1,6 +1,14 @@
 import java.util.ArrayList;
 
 public class TailRecursion {
+	
+	
+//	steps for implementing recursion !
+//	1) Show f(1) works(base case)
+//	2) Assume f(n-1) works
+//	3) show f(n) works using f(n-1)
+//	need to define relationship betwee f(n) and f(n-1) properly
+//	 think of Domino if its hard to understand;
 
 	public static void main(String[] args) {
 		tailRecurUsingStack(4);
