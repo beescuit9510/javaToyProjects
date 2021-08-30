@@ -11,16 +11,13 @@ public class StraightSelectionSort {
 
 	public static void straightSelectionSort(int[] list) {
 		int len = list.length;
-		int idx = 0;
-		int start = 0;
 
 		for (int i = 0; i < len - 1; i++) {
-			int min = start;
-			for (int j = start; j < len; j++) {
+			int min = i;
+			for (int j = i+1; j < len; j++) {
 				min = list[min] < list[j] ? min : j;
 			}
-			start++;
-			swap(list, idx++, min);
+			swap(list, i, min);
 		}
 
 		for (int i : list) {
