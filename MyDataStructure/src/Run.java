@@ -1,14 +1,23 @@
-import myStringSearch.BruteForceSearch;
+import myStringSearch.KMPMatchingSearch;
 
 public class Run {
-	
+		
 	public static void main(String[] args) {
-		String str1 = "hello java html va";
-		String str2 = "lo";
-		int a = BruteForceSearch.bfMatchLast(str1, str2);
-		int b = BruteForceSearch.bfMatchLast2(str1, str2);
+		
+		int a =KMPMatchingSearch.kmpMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
+		
+		String aa = "dsgwadsgadsgwadaadsgwadsgz";
 		System.out.println(a);
-		System.out.println(b);
+		System.out.println(aa.substring(a));
+	}
+	
+//	public static void main(String[] args) {
+//		String str1 = "hello java html va";
+//		String str2 = "lo";
+//		int a = BruteForceSearch.bfMatchLast(str1, str2);
+//		int b = BruteForceSearch.bfMatchLast2(str1, str2);
+//		System.out.println(a);
+//		System.out.println(b);
 //		System.out.println(str);
 //		
 //		MyIntSet set = new MyIntSortedSet(10);
@@ -60,7 +69,7 @@ public class Run {
 //		System.out.println(set1.isProperSubsetOf(set2));
 //		System.out.println(set2.isSubsetOf(set));
 //		
-	}
+//	}
 	
 //	public static void main(String[] args) {
 //		
