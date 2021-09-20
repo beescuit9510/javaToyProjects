@@ -10,9 +10,10 @@ public class BoyerMooreMatch {
 		int pp = p.length() - 1; // pattern pointer
 		HashMap<Character, Integer> table = new HashMap<>();
 
-		
 //		pattern length - last appearing idx - 1;
-		Stream.of(p.split("")).forEach(str -> table.put(str.charAt(0), p.length()-p.lastIndexOf(str.charAt(0))-1));
+//		Stream.of(p.split("")).forEach(ch -> table.put(ch[0], p.length()-p.lastIndexOf(ch+"")-1));
+
+		p.chars().forEach(n -> table.put((char) n, p.length() - p.lastIndexOf((char) n) - 1));
 		System.out.println(table.entrySet());
 
 		while (tp < txt.length()) {
@@ -21,18 +22,18 @@ public class BoyerMooreMatch {
 			System.out.println(txt);
 			Stream.of(new String[tp]).forEach((a) -> System.out.printf(" "));
 			System.out.printf("|\n");
-			Stream.of(new String[tp-pp]).forEach((a) -> System.out.printf(" "));
+			Stream.of(new String[tp - pp]).forEach((a) -> System.out.printf(" "));
 			System.out.println(p);
-			
+
 			pp = p.length() - 1;
 
 			while (txt.charAt(tp) == p.charAt(pp)) {
 				System.out.println(txt);
 				Stream.of(new String[tp]).forEach((a) -> System.out.printf(" "));
 				System.out.printf("|\n");
-				Stream.of(new String[tp-pp]).forEach((a) -> System.out.printf(" "));
+				Stream.of(new String[tp - pp]).forEach((a) -> System.out.printf(" "));
 				System.out.println(p);
-				
+
 				if (pp == 0) {
 					return tp;
 				}
