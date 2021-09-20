@@ -1,3 +1,4 @@
+import myStringSearch.BoyerMooreMatch;
 import myStringSearch.KMPMatchingSearch;
 
 public class Run {
@@ -8,7 +9,16 @@ public class Run {
 		
 		String aa = "dsgwadsgadsgwadaadsgwadsgz";
 		System.out.println(a);
-		System.out.println(aa.substring(a));
+//		System.out.println(aa.substring(a));
+		
+		
+//		String abcd = "abcda";
+		System.out.println("dsgwadsgadsgwadaadsgwadsgz".indexOf("dsgwadsgz"));
+//		System.out.println("abcxdezcabacabac".indexOf("abac"));
+//		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
+		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
+//		int bb = BoyerMooreMatch.bmMatch("abcxdezcabacabac", "abac");
+		System.out.println(bb);
 	}
 	
 //	public static void main(String[] args) {
