@@ -16,8 +16,9 @@ public class Run {
 		System.out.println("dsgwadsgadsgwadaadsgwadsgz".indexOf("dsgwadsgz"));
 //		System.out.println("abcxdezcabacabac".indexOf("abac"));
 //		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
-		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
-//		int bb = BoyerMooreMatch.bmMatch("abcxdezcabacabac", "abac");
+//		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "dsgwadsgz");
+//		int bb = BoyerMooreMatch.bmMatch("dsgwadsgadsgwadaadsgwadsgz", "abc");
+		int bb = BoyerMooreMatch.bmMatch("abcxdezcabacabac", "abac");
 		System.out.println(bb);
 	}
 	

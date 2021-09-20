@@ -11,8 +11,8 @@ public class BoyerMooreMatch {
 		HashMap<Character, Integer> table = new HashMap<>();
 
 		
-//		pattern length - pattern.chatAt(ch) - 1;
-		Stream.of(p.split("")).forEach(str -> table.put(str.charAt(0), p.indexOf(str.charAt(0))));
+//		pattern length - last appearing idx - 1;
+		Stream.of(p.split("")).forEach(str -> table.put(str.charAt(0), p.length()-p.lastIndexOf(str.charAt(0))-1));
 		System.out.println(table.entrySet());
 
 		while (tp < txt.length()) {
