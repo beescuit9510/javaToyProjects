@@ -2,7 +2,7 @@ package kr.or.iei.member.model.vo;
 
 public class Member {
 
-	private String memberNo;
+	private int memberNo;
 	private String memberId;
 	private String memberPw;
 	private String memberName;
@@ -19,7 +19,7 @@ public class Member {
 //    private int MEMBER_LEVEL;
 //    private String ENROLL_DATE;
 
-	public Member(String memberNo, String memberId, String memberPw, String memberName, String phone, String address,
+	public Member(int memberNo, String memberId, String memberPw, String memberName, String phone, String address,
 			int memberLevel, String enrollDate) {
 		super();
 		this.memberNo = memberNo;
@@ -45,11 +45,11 @@ public class Member {
 		super();
 	}
 
-	public String getMemberNo() {
+	public int getMemberNo() {
 		return memberNo;
 	}
 
-	public void setMemberNo(String memberNo) {
+	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
 	}
 
@@ -109,6 +109,11 @@ public class Member {
 		this.enrollDate = enrollDate;
 	}
 
+	
+	public String getTd() {
+		return "<tr><td>"+memberNo + "</td><td>" + memberId + "</td><td>" + memberPw + "</td><td>" + memberName + "</td><td>" + phone + "</td><td>" + address + "</td><td>"
+				+ memberLevel + "</td><td>" + enrollDate+"</td></tr>";
+	}
 	@Override
 	public String toString() {
 		return "<tr><td>"+memberNo + "</td><td>" + memberId + "</td><td>" + memberPw + "</td><td>" + memberName + "</td><td>" + phone + "</td><td>" + address + "</td><td>"
