@@ -1,7 +1,6 @@
 package member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import member.model.vo.Member;
 
 /**
  * Servlet implementation class LogoutServlet
@@ -42,12 +39,17 @@ public class LogoutServlet extends HttpServlet {
 
 			session.invalidate();
 
+			// 동적 페이지 이동
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/msg.jsp");
 
 			request.setAttribute("msg", "로그아웃");
 			request.setAttribute("loc", "/");
 
 			view.forward(request, response);
+
+		} else {
+			// 정적 페이지 이동
+			response.sendRedirect("/");
 
 		}
 	}

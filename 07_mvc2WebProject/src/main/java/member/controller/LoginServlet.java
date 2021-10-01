@@ -48,11 +48,21 @@ public class LoginServlet extends HttpServlet {
 		Member member = new MemberService().selectOneMember(memberId, memberPw);
 		
 		if(member!=null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("member", member);
 			
-			response.sendRedirect("/");
-			
+			if(member.getMemberLevel() == 3) {
+				//레벨 3이면 ID/PW가 맞더라도 로그인안됨.
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/msg.jsp");
+				request.setAttribute("msg", "로그인 권한이 없습니다. 관리자에게 문의하세요");
+				request.setAttribute("loc", "/");
+				view.forward(request, response);
+				
+			}else {
+				HttpSession session = request.getSession();
+				session.setAttribute("member", member);
+				
+				response.sendRedirect("/");				
+				
+			}
 		}else {
 			//msg.jsp 는 alert을 화면에 띄운 후 페이지를 이동하는 기능을 가진 jsp
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/msg.jsp");
