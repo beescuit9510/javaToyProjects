@@ -43,6 +43,15 @@ public class MemberService {
 		return member;
 	}
 	
+	public Member selectOneMember(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member member = dao.selectOneMember(conn, memberNo);
+		
+		JDBCTemplate.close(conn);
+		
+		return member;
+	}
+
 	public int update(Member member) {
 		Connection conn = JDBCTemplate.getConnection();
 		int result = dao.update(conn, member);

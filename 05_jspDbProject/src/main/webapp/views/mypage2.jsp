@@ -1,8 +1,12 @@
 <%@page import="kr.or.iei.member.model.vo.Member" %>
+<%@page import="kr.or.iei.member.model.service.MemberService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    	Member member = (Member)session.getAttribute("member");
+    	request.setCharacterEncoding("utf-8");
+    	int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+    	Member member = new MemberService().selectOneMember(memberNo);
+    	
     %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +17,7 @@
 <body>
 	<h1>마이페이지</h1>
 	<hr>
-	<form action="/05_jspDbProject/views/update.jsp" method="get">
+	<form action="/05_jspDbProject/views/update2.jsp" method="get">
 		<fieldset>
 			<label for="memberNo">회원번호</label>
 			<input type="text" name="memberNo" id="memberNo" value="<%=member.getMemberNo() %>" readonly><br>

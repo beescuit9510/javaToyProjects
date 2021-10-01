@@ -24,7 +24,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+</head>  
 <body>
 	<h1>회원관리</h1>
 	<hr>
@@ -33,6 +33,9 @@
 	<% } %>
 	<%=printAllMember %>
 	<h3><a href=<%=href %>><%=logInOut %></a></h3>
-	<h3><a href="/05_jspDbProject/views/mypage.jsp">마이페이지-1</a></h3>	
+	<%if(loggedIn){ %>
+	<h3><a href="/05_jspDbProject/views/mypage.jsp">마이페이지-1</a></h3>	 
+	<h3><a href="/05_jspDbProject/views/mypage2.jsp?memberNo=<%=member.getMemberNo() %>">마이페이지-2</a></h3>	 
+	<% }%>
 </body>
 </html>

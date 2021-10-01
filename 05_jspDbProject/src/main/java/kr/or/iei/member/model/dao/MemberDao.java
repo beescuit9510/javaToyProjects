@@ -91,7 +91,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getMemberPw());
 			pstmt.setString(2, member.getPhone());
 			pstmt.setString(3, member.getAddress());
-			pstmt.setInt(1, member.getMemberNo());
+			pstmt.setInt(4, member.getMemberNo());
 			
 			result = pstmt.executeUpdate();
 
@@ -100,6 +100,32 @@ public class MemberDao {
 		}
 		
 		return result;
+	}
+
+	public Member selectOneMember(Connection conn, int memberNo) {
+		PreparedStatement pstmt = null;
+		ResultSet r = null;
+		Member member = null;
+		String query = "select * from member where member_no = ?";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			r = pstmt.executeQuery();
+			
+			if (r.next()) {
+				member = new Member(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5),
+						r.getString(6), r.getInt(7), r.getString(8));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(r);
+		}
+
+		return member;
 	}
 
 }
